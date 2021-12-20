@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>寶徠社區管理申請入口</title>
+	<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+<script type="text/javascript">
+var liffID = '1656721259-jdXZ4Vqx';
+
+liff.init({
+	liffId: liffID
+}).then(function() {
+	var isLoggedIn = liff.isLoggedIn(); // 使用者是否登入 LINE 帳號
+    var isInLine = liff.isInClient();   // 回傳是否由 LINE App 存取
+    var context = liff.getContext();
+	if (isLoggedIn) {
+		liff.getProfile()
+			.then(profile => {
+                var userID = profile.userID;
+				liff.openWindow({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSe9qd9fyDhCmNLHWiuR9qjblX_apwe_RKUb2Wm7kqLU3JdoLg/viewform?usp=pp_url&entry.697677827="+userID,
+                    external: false
+                })
+			})
+	} else {
+		liff.login({
+			// 使用者登入後要去到哪個頁面
+			redirectUri: 'https://admin.toy-people.com/liff.html'
+		});
+	}
+}).catch(function(error) {
+  console.log(error);
+});
+</script>
+</body>
+</html>

@@ -11,6 +11,8 @@
 <script type="text/javascript">
 var liffID = '1656721259-jdXZ4Vqx';
 var loginUrl = 'https://riceeechang.github.io/boalie/';
+var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe9qd9fyDhCmNLHWiuR9qjblX_apwe_RKUb2Wm7kqLU3JdoLg/viewform?usp=pp_url&entry.697677827=';
+
 liff.init({
 	liffId: liffID
 }).then(function() {
@@ -20,11 +22,12 @@ liff.init({
 	if (isLoggedIn) {
 		liff.getProfile()
 			.then(profile => {
-                var userID = profile.userID;
-				liff.openWindow({
+                var userID = profile['userID'];
+				console.log(profile, userID);
+				/*liff.openWindow({
                     url: "https://docs.google.com/forms/d/e/1FAIpQLSe9qd9fyDhCmNLHWiuR9qjblX_apwe_RKUb2Wm7kqLU3JdoLg/viewform?usp=pp_url&entry.697677827="+userID,
                     external: false
-                })
+                })*/
 			})
 	} else {
 		liff.login({

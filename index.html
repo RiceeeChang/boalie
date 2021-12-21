@@ -24,6 +24,7 @@ liff.init({
 			.then(profile => {
                 var userId = profile['userId'];
 				console.log(profile, userId);
+				location.href = formUrl + userId;
 				/*liff.openWindow({
                     url: "https://docs.google.com/forms/d/e/1FAIpQLSe9qd9fyDhCmNLHWiuR9qjblX_apwe_RKUb2Wm7kqLU3JdoLg/viewform?usp=pp_url&entry.697677827="+userID,
                     external: false

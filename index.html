@@ -10,7 +10,7 @@
 <body>
 <script type="text/javascript">
 var liffID = '1656721259-jdXZ4Vqx';
-
+var loginUrl = 'https://riceeechang.github.io/boalie/';
 liff.init({
 	liffId: liffID
 }).then(function() {
@@ -28,8 +28,7 @@ liff.init({
 			})
 	} else {
 		liff.login({
-			// 使用者登入後要去到哪個頁面
-			redirectUri: 'https://admin.toy-people.com/liff.html'
+			redirectUri: loginUrl // 使用者登入後要去到哪個頁面
 		});
 	}
 }).catch(function(error) {

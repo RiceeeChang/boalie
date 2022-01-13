@@ -1,0 +1,12 @@
+.fix-item-list {
+    display: flex;
+    flex-direction: row;
+    
+}
+.fix-item {
+    background-color: #27475C;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+
+}

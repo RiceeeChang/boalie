@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     font-family: 'Noto Sans TC';
@@ -6,7 +9,20 @@ body {
 a {
     text-decoration: none;
 }
-.header {
+
+
+.container {
+    padding: 0;
+    margin: 0;
+}
+.bgcolor_main {
+    background-color: #27475C;
+}
+.bgcolor_second {
+    background-color: #A3988C;
+}
+
+.fix .header {
     
     display: flex;
     flex-direction: row;
@@ -19,20 +35,20 @@ a {
     width: 100vw;
     height: 110px;
 }
-.logo {
+.fix .logo {
     align-self: flex-end;
 }
-.logo img {
+.fix .logo img {
     width: 100px;
 }
-.header .title {
+.fix .header .title {
     writing-mode: vertical-lr;
     color: white;
     font-size: 45px;
     font-weight: bold;
     margin-bottom: 5px;
 }
-.content {
+.fix .content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,12 +56,12 @@ a {
     height: 100vw;
 }
 
-.fix-item-list {
+.fix .fix-item-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: fit-content;
 }
-.fix-item {
+.fix .fix-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,13 +79,81 @@ a {
     border-radius: 15px;
     box-shadow: 2px 2px 5px rgba(0,0,0, 25%);
 }
-.bgcolor_main {
-    background-color: #27475C;
-}
-.bgcolor_second {
-    background-color: #A3988C;
-}
-.fix-item-logo {
+.fix .fix-item-logo {
     width: 108px;
     height: 90px;
+}
+
+.billboard {
+    background-color: #e4e4e4;
+    padding: 12px;
+}
+.billboard .nav-item {
+    background-color: none;
+    color: #b5b5bb;
+    
+    height: 32px;
+    border-radius: 10px 10px 0 0;
+    
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 32px;
+    padding: 0 12px;
+}
+.billboard .nav-active {
+    background-color: #fff;
+    color: #27475C;
+}
+.billboard .content {
+    background-color: #fff;
+
+    padding-top: 10px;
+}
+.billboard .content .title {
+    display: flex;
+    color: #E8DFD6;
+    width: 200px;
+    height: 54px;
+    margin-bottom: 10px;
+    border-radius: 0 27px 27px 0;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 54px;
+}
+.billboard .content .title img {
+    height: 54px;
+    margin-right: 10px;
+}
+.billboard .post-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 5px;
+    font-size: 14px;
+}
+.billboard i {
+    margin-right: 5px;
+}
+.billboard .post-list .text {
+    display: inline-block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    font-size: 16px;
+}
+.billboard .post-list .time {
+    display: block;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-right: 10px;
+}
+.billboard .post-list .author {
+    display: block;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+
+.calender {
+    padding: 12px;
 }

@@ -2,9 +2,10 @@
     box-sizing: border-box;
 }
 body {
+    padding: 0;
     margin: 0;
+    border: 0;
     font-family: 'Noto Sans TC';
-    text-decoration: none;
 }
 a {
     text-decoration: none;
@@ -44,7 +45,8 @@ a {
 .header .title {
     writing-mode: vertical-lr;
     color: white;
-    font-size: 45px;
+    font-size: 48px;
+    line-height: 48px;
     font-weight: bold;
     margin-bottom: 5px;
 }

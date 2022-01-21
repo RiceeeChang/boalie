@@ -22,7 +22,7 @@ a {
     background-color: #A3988C;
 }
 
-.fix .header {
+.header {
     
     display: flex;
     flex-direction: row;
@@ -35,13 +35,13 @@ a {
     width: 100vw;
     height: 110px;
 }
-.fix .logo {
+.header .logo {
     align-self: flex-end;
 }
-.fix .logo img {
+.header .logo img {
     width: 100px;
 }
-.fix .header .title {
+.header .title {
     writing-mode: vertical-lr;
     color: white;
     font-size: 45px;
@@ -156,4 +156,73 @@ a {
 
 .calender {
     padding: 12px;
+}
+
+.shop .content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 45px 0;
+}
+.shop .shop-desc {
+    font-size: 16px;
+    color: #27475C;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+.shop .product {
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: brightness(60%);
+    -webkit-backdrop-filter: brightness(60%);
+    padding: 15px;
+    width: 100%;
+    height: 90px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 5px rgba(71, 71, 71, 0.25) ;
+    margin: 10px 0;
+
+    color: #FFF;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.shop .product .name {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    
+}
+.shop .product .divider {
+    border-top: 1px solid #fff;
+    width: 12px;
+    margin: 12px 0 6px;
+}
+.shop .product .slogan {
+    font-size: 12px;
+    font-weight: normal;
+}
+.shop .product .buy-button {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 16px;
+
+    border-radius: 6px;
+    box-shadow: 0px 2px 2px rgba(50, 50, 50, 0.2);
+}
+
+.shop .product .primary {
+    color:#E8DFD6;
+    background-color: #27475C;
+}
+.shop .product .second {
+    color:#27475C;
+    background-color: #E8DFD6;
+}
+
+.shop .product .cta {
+    justify-self: flex-end;
+    align-self: flex-end;
 }

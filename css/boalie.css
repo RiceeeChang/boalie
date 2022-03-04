@@ -142,11 +142,15 @@ a {
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 5px;
     font-size: 14px;
+    width: 100%;
 }
 .billboard i {
     margin-right: 5px;
 }
 .billboard .post-list .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     display: inline-block;
     grid-column-start: 1;
     grid-column-end: 3;

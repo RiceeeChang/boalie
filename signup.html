@@ -21,21 +21,21 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 </head>
 <body id="app">
-
-  <section class="splide" aria-label="Splide Basic HTML Example">
+  <div id="enter-card" class="bg-material slide-card">
+    <div class="content hello-content">
+      <img class="logo" src="./assets/N00_LOGO_07.png">
+      <p style="text-align: center;">為了確保服務的安全以及品質，
+        加入社區服務官方Line@帳號前，請先填寫個人用戶資料。
+      </p>
+    </div>
+    <div class="start-panel">
+      <button class="button start-button"><span class="icon-pen"></span>填寫資料</button>
+    </div>
+  </div>
+  <section class="splide" style="display:none;" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
       <div class="splide__list">
-        <div class="splide__slide bg-material slide-card">
-          <div class="content hello-content">
-            <img class="logo" src="./assets/N00_LOGO_07.png">
-            <p style="text-align: center;">為了確保服務的安全以及品質，
-              加入社區服務官方Line@帳號前，請先填寫個人用戶資料。
-            </p>
-          </div>
-          <div class="start-panel">
-            <button class="button start-button"><span class="icon-pen"></span>填寫資料</button>
-          </div>
-        </div>
+        
         <div class="splide__slide slide-card">
           <div class="content">
             <h3 class="question">1. 你的姓名是？</h3>
@@ -77,8 +77,8 @@
   </section>
 
   <nav class="nav-prev-next">
-    <button class="prev"><span class="chevron-up"></span></button>
-    <button class="next"><span class="chevron-down"></span></button>
+    <button class="prev button"><span class="icon-chevronUp"></span></button>
+    <button class="next button"><span class="icon-chevronDown"></span></button>
   </nav>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -94,6 +94,15 @@
       pagination: false
     } );
     splide.mount();
+
+    $(".start-button").on("tap click", function () {
+      console.log("123");
+      //$("#splide01-slide01").css("display", "none");
+      $("#enter-card").css("display", "none");
+      $(".splide").css("display", "block");
+      //splide.go( '>' );
+      $(".nav-prev-next").css("display", "flex");
+    });
   </script>
 </body>
 </html>

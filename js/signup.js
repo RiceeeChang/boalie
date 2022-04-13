@@ -41,4 +41,5 @@ liff.init({
 	}
 }).catch(function(error) {
   console.log(error);
+  console.log("請在Line手機版中開啟本連結");
 });

@@ -103,6 +103,13 @@
       //splide.go( '>' );
       $(".nav-prev-next").css("display", "flex");
     });
+
+    $(".prev").on("tap click", function() {
+      splide.go("<");
+    });
+    $(".next").on("tap click", function() {
+      splide.go(">");
+    });
   </script>
 </body>
 </html>

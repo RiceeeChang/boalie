@@ -242,3 +242,7 @@ a {
     justify-self: flex-end;
     align-self: flex-end;
 }
+
+.loading {
+    text-align: center;
+}

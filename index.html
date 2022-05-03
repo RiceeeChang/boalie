@@ -34,7 +34,7 @@ liff.init({
 		liff.getProfile()
 			.then(profile => {
 				// 驗證line_id是否已經加入
-				fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
+				fetch('https://script.google.com/macros/s/AKfycbxcL1FoKSap6ArhP_6u3B_8DJ5hRQNfscM-mxr9jqUr8nNAGHVk8ElXJQUIjiD3dV8kmw/exec?line_id='+userId)
 				.then(function(response) {
 					return response.json();
 				})
@@ -48,7 +48,7 @@ liff.init({
 							email: liff.getDecodedIDToken().user.email,
 							pictureUrl: profile.pictureUrl
 						};
-						fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec', {
+						fetch('https://script.google.com/macros/s/AKfycbxcL1FoKSap6ArhP_6u3B_8DJ5hRQNfscM-mxr9jqUr8nNAGHVk8ElXJQUIjiD3dV8kmw/exec', {
 							method: 'POST',
 							body: JSON.stringify(data),
 							headers: new Headers({

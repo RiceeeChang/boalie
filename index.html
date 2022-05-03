@@ -34,7 +34,7 @@ liff.init({
 		liff.getProfile()
 			.then(profile => {
 				// 驗證line_id是否已經加入
-				fetch('https://script.google.com/macros/s/AKfycbxcL1FoKSap6ArhP_6u3B_8DJ5hRQNfscM-mxr9jqUr8nNAGHVk8ElXJQUIjiD3dV8kmw/exec?line_id='+userId)
+				fetch('https://script.google.com/macros/s/AKfycbxcL1FoKSap6ArhP_6u3B_8DJ5hRQNfscM-mxr9jqUr8nNAGHVk8ElXJQUIjiD3dV8kmw/exec?line_id='+profile.userId)
 				.then(function(response) {
 					return response.json();
 				})

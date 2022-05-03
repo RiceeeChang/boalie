@@ -51,11 +51,11 @@ liff.init({
 
 		// 取得使用者類型資料
 		var context = liff.getContext();
-		console.log(context);
+		console.log("Context:", context);
 
 		var user = liff.getDecodedIDToken();
 		var email = user.email;
-		console.log(email);
+		console.log("email:", email);
 	} else {
 		liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面

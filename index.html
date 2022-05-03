@@ -33,9 +33,8 @@ liff.init({
 	if (isLoggedIn) {
 		liff.getProfile()
 			.then(profile => {
-                var userId = profile['userId'];
 				// 驗證line_id是否已經加入
-				/*fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
+				fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
 				.then(function(response) {
 					return response.json();
 				})
@@ -43,19 +42,33 @@ liff.init({
 					if (response.result == true) { // 已經加入，直接轉去Line@
 						location.href = lineAtUrl;
 					} else { // 還沒加入，轉去註冊表單
-						location.href = formUrl + userId;
+						var data = {
+							userId: profile.userId,
+							displayName: profile.displayname,
+							email: liff.getDecodedIDToken().user.email,
+							pictureUrl: profile.pictureUrl
+						};
+						fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec', {
+							method: 'POST',
+							body: JSON.stringify(data),
+							headers: new Headers({
+								'Content-Type': 'application/json'
+							})
+						})
+						.then(res => res.json())
+						.then(response => {
+							if (respose.result == true) {
+								location.href = lineAtUrl;
+							}
+						})
 					}
-				});*/
+				});
 				console.log(profile, userId);
 			})
 
-		// 取得使用者類型資料
-		var context = liff.getContext();
-		console.log("Context:", context);
+	
 
-		var user = liff.getDecodedIDToken();
-		var email = user.email;
-		console.log("email:", email);
+		
 	} else {
 		liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面

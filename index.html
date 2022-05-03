@@ -35,7 +35,7 @@ liff.init({
 			.then(profile => {
                 var userId = profile['userId'];
 				// 驗證line_id是否已經加入
-				fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
+				/*fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
 				.then(function(response) {
 					return response.json();
 				})
@@ -45,9 +45,17 @@ liff.init({
 					} else { // 還沒加入，轉去註冊表單
 						location.href = formUrl + userId;
 					}
-				});
+				});*/
 				console.log(profile, userId);
 			})
+
+		// 取得使用者類型資料
+		var context = liff.getContext();
+		console.log(context);
+
+		var user = liff.getDecodedIDToken();
+		var email = user.email;
+		console.log(email);
 	} else {
 		liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面

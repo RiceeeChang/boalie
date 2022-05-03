@@ -1,5 +1,3 @@
-
-
 var liffID = '1656721259-jdXZ4Vqx';
 var loginUrl = 'https://riceeechang.github.io/boalie/';
 var lineAtUrl = 'https://lin.ee/i5P97Pv';
@@ -42,4 +40,27 @@ liff.init({
 }).catch(function(error) {
   console.log(error);
   console.log("請在Line手機版中開啟本連結");
+});
+
+
+var splide = new Splide( '.splide', {
+	direction : 'ttb',
+	height    : '100vh',
+	arrows    : false,
+	pagination: false
+} );
+splide.mount();
+
+$(".start-button").on("tap click", function () {
+	console.log("start-button click");
+	$("#enter-card").css("display", "none");
+	$(".splide").css("display", "block");
+	$(".nav-prev-next").css("display", "flex");
+});
+
+$(".prev").on("tap click", function() {
+	splide.go("<");
+});
+$(".next").on("tap click", function() {
+	splide.go(">");
 });

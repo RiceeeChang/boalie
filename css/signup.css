@@ -11,6 +11,9 @@
     --clr-container: 31 11% 59%;
     --clr-on-container: 0 0% 100%;
 
+    --clr-button-hover: 31 17% 69%;
+    --clr-button-active: 31 8% 51%;
+
     --clr-dark: 230 35% 7%;
     --clr-light: 231 77% 90%;
     --clr-white: 0 0% 100%;
@@ -197,10 +200,9 @@ select {
 .start-button {
     width: 100%;
     height: 48px;
-    background: hsla(31, 11%, 59%, 1);
+    
 
     color: hsl( var(--clr-on-container) );
-
     font-size: 24px;
     font-weight: bold;
     
@@ -221,6 +223,14 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background: hsla(31, 11%, 59%, 1);
+}
+.button:hover {
+    background-color: hsl(var(--clr-button-hover));
+}
+.button:active, .button:focus {
+    background-color: hsl(var(--clr-button-active));
 }
 
 
@@ -262,4 +272,10 @@ select {
 
 .next {
     border-radius: 0 4px 4px 0!important;
+}
+
+.answer-field {
+    display: flex;
+    flex-direction: column;
+    
 }

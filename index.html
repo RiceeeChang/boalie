@@ -8,6 +8,11 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div id="profile">
+
+	</div>
+
+
 <script type="text/javascript">
 var liffID = '1656721259-jdXZ4Vqx';
 var loginUrl = 'https://riceeechang.github.io/boalie/';
@@ -28,7 +33,11 @@ liff.init({
 	if (isLoggedIn) {
 		liff.getProfile()
 			.then(profile => {
-                var userId = profile['userId'];
+				var elem = document.getElementById("profile");
+				profile.forEach( (index, item) => {
+					elem.append("<div>" + index + ": " + item + "</div>");
+				})
+                /*var userId = profile['userId'];
 				// 驗證line_id是否已經加入
 				fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
 				.then(function(response) {
@@ -41,12 +50,14 @@ liff.init({
 						location.href = formUrl + userId;
 					}
 				});
-				console.log(profile, userId);
+				console.log(profile, userId);*/
 			})
 	} else {
-		liff.login({
+		/*liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面
-		});
+		});*/
+
+
 	}
 }).catch(function(error) {
   console.log(error);

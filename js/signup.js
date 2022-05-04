@@ -1,5 +1,5 @@
 var liffID = '1656721259-jdXZ4Vqx';
-var loginUrl = 'https://riceeechang.github.io/boalie/';
+var loginUrl = 'https://riceeechang.github.io/boalie/signup.html';
 var lineAtUrl = 'https://lin.ee/i5P97Pv';
 var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe9qd9fyDhCmNLHWiuR9qjblX_apwe_RKUb2Wm7kqLU3JdoLg/viewform?usp=pp_url&entry.697677827=';
 
@@ -14,25 +14,7 @@ liff.init({
 
 	var isLoggedIn = liff.isLoggedIn(); // 使用者是否登入 LINE 帳號
     var context = liff.getContext();
-	if (isLoggedIn) {
-		liff.getProfile()
-			.then(profile => {
-                var userId = profile['userId'];
-				// 驗證line_id是否已經加入
-				fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+userId)
-				.then(function(response) {
-					return response.json();
-				})
-				.then(function(response) {
-					if (response.result == true) { // 已經加入，直接轉去Line@
-						location.href = lineAtUrl;
-					} else { // 還沒加入，轉去註冊表單
-						location.href = formUrl + userId;
-					}
-				});
-				console.log(profile, userId);
-			})
-	} else {
+	if (!isLoggedIn) {
 		liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面
 		});
@@ -64,3 +46,29 @@ $(".prev").on("tap click", function() {
 $(".next").on("tap click", function() {
 	splide.go(">");
 });
+
+
+$(".ok-button").on("tap click", function () {
+	var data = {
+		name: $("input[name=name]").val(),
+		phone: $("input[name=phone]").val(),
+		apartment: $("input[name=apart]").val(),
+		birthday: $("input[name=birthday]").val()
+	};
+
+	var dbUrl = 'https://script.google.com/macros/s/AKfycby1qb8IwP3qDcn6Ao7TG9AdVjtNxJVvhUd9LNvRYpmbeW5Fa0bn5BLzlm7Ynor4YwOSHA/exec';
+	fetch(dbUrl, {
+		method: 'POST',
+		body: JSON.stringify(data)
+	})
+	.then(res => res.json())
+	.then(response => {
+		if (response.result == true) {
+			splide.go(">");
+		}
+	})
+});
+
+$(".join-button").on("tap click", function () {
+	liff.closeWindow();
+})

@@ -158,6 +158,11 @@ select {
     height: 24px;
     background-image: url(../assets/icon/chevron-down.png);
 }
+.icon-checkLg {
+    width: 30px;
+    height: 30px;
+    background-image: url(../assets/icon/CheckLg.svg);
+}
 
 /* ---------------------------------------------------- */
 
@@ -175,7 +180,9 @@ select {
 }
 
 .hello-content {
-    padding-top: calc(35vh - 150px) !important;
+    padding: 16px;
+    padding-top: calc(35vh - 150px);
+    height: 100%;
 }
 
 .logo {
@@ -185,9 +192,9 @@ select {
 }
 
 .content {
-    padding: 16px;
-    padding-top: 30vh;
-    height: 100%;
+    width: 100%;
+    padding: 32px;
+    margin: 0px 0;
 }
 
 .start-panel {
@@ -275,7 +282,31 @@ select {
 }
 
 .answer-field {
+    margin-top: 16px;
+    margin-left: 24px;
+}
+
+.second-page {
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+}
+
+.input-text {
+    font-size: 24px;
+    width: 80%;
+    background-color: unset;
+    border: none;
+    border-bottom: #D9CABB 1px solid;
+}
+.input-text::placeholder {
+    columns: #DBCCBD;
+    opacity: 40%;
+}
+
+.ok-button {
+    color: white;
+    width: 80px;
+    height: 36px;
+    border-radius: 4px;
 }

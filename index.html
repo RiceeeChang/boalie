@@ -33,15 +33,17 @@ liff.init({
 	if (isLoggedIn) {
 		liff.getProfile()
 			.then(profile => {
+				console.log(profile);
 				// 驗證line_id是否已經加入
-				fetch('https://script.google.com/macros/s/AKfycbxcL1FoKSap6ArhP_6u3B_8DJ5hRQNfscM-mxr9jqUr8nNAGHVk8ElXJQUIjiD3dV8kmw/exec?line_id='+profile.userId)
+				fetch('https://script.google.com/macros/s/AKfycbzzNhSUe4bmfL5-Fd5Fy0zzlMJtWM9YZIWURTFd8gVxyfpC9jXGM5uGcgszT9W0sKj0yg/exec?line_id='+profile.userId)
 				.then(function(response) {
 					return response.json();
 				})
 				.then(function(response) {
-					if (response.result == true) { // 已經加入，直接轉去Line@
+					console.log(response);
+					/*if (response.result == true) { // 已經加入，直接轉去Line@
 						location.href = lineAtUrl;
-					} else { // 還沒加入，轉去註冊表單
+					} else {
 						var data = {
 							userId: profile.userId,
 							displayName: profile.displayname,
@@ -61,9 +63,9 @@ liff.init({
 								location.href = lineAtUrl;
 							}
 						})
-					}
+					}*/
 				});
-				console.log(profile, userId);
+				console.log(profile);
 			})
 
 	

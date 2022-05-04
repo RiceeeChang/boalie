@@ -45,10 +45,12 @@ liff.init({
 					if (response.result == true) { // 已經加入，直接轉去Line@
 						location.href = lineAtUrl;
 					} else {
+						var user = liff.getDecodedIDToken();
+
 						var data = {
 							userId: profile.userId,
 							displayName: profile.displayname,
-							email: liff.getDecodedIDToken().user.email,
+							email: user.email,
 							pictureUrl: profile.pictureUrl
 						};
 						fetch('https://script.google.com/macros/s/AKfycbxcL1FoKSap6ArhP_6u3B_8DJ5hRQNfscM-mxr9jqUr8nNAGHVk8ElXJQUIjiD3dV8kmw/exec', {

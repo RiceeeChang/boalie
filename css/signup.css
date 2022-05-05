@@ -293,6 +293,7 @@ select {
 }
 
 .input-text {
+    color: #D9CABB;
     font-size: 24px;
     width: 80%;
     background-color: unset;

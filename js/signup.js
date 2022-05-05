@@ -1,8 +1,7 @@
-var liffID = '1656721259-jdXZ4Vqx';
+var liffID = '1656721259-z1VERDAj';
 var loginUrl = 'https://riceeechang.github.io/boalie/signup.html';
-var lineAtUrl = 'https://lin.ee/i5P97Pv';
-var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe9qd9fyDhCmNLHWiuR9qjblX_apwe_RKUb2Wm7kqLU3JdoLg/viewform?usp=pp_url&entry.697677827=';
-
+var dbUrl = 'https://script.google.com/macros/s/AKfycbykBFd1EEjDUWC2mtHzTHrW5YDwIpVBwwTsCSY8GbNXZ69ObEthL6aRdXSewF93O5IlnQ/exec';
+var userId = '';
 liff.init({
 	liffId: liffID
 }).then(function() {
@@ -13,11 +12,15 @@ liff.init({
 	}
 
 	var isLoggedIn = liff.isLoggedIn(); // 使用者是否登入 LINE 帳號
-    var context = liff.getContext();
 	if (!isLoggedIn) {
 		liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面
 		});
+	} else {
+		liff.getProfile()
+			.then(profile => {
+				userId = profile.userId;
+			});
 	}
 }).catch(function(error) {
   console.log(error);
@@ -50,13 +53,13 @@ $(".next").on("tap click", function() {
 
 $(".ok-button").on("tap click", function () {
 	var data = {
+		userId: userId,
 		name: $("input[name=name]").val(),
 		phone: $("input[name=phone]").val(),
 		apartment: $("input[name=apart]").val(),
 		birthday: $("input[name=birthday]").val()
 	};
-
-	var dbUrl = 'https://script.google.com/macros/s/AKfycby1qb8IwP3qDcn6Ao7TG9AdVjtNxJVvhUd9LNvRYpmbeW5Fa0bn5BLzlm7Ynor4YwOSHA/exec';
+	console.log(data);
 	fetch(dbUrl, {
 		method: 'POST',
 		body: JSON.stringify(data)

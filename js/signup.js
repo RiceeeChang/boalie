@@ -11,7 +11,7 @@ liff.init({
 		console.log("請使用手機的Line開啟");
 	}
 
-	var isLoggedIn = liff.isLoggedIn(); // 使用者是否登入 LINE 帳號
+	/*var isLoggedIn = liff.isLoggedIn(); // 使用者是否登入 LINE 帳號
 	if (!isLoggedIn) {
 		liff.login({
 			redirectUri: loginUrl // 使用者登入後要去到哪個頁面
@@ -21,7 +21,7 @@ liff.init({
 			.then(profile => {
 				userId = profile.userId;
 			});
-	}
+	}*/
 }).catch(function(error) {
   console.log(error);
   console.log("請在Line手機版中開啟本連結");
@@ -32,15 +32,14 @@ var splide = new Splide( '.splide', {
 	direction : 'ttb',
 	height    : '100vh',
 	arrows    : false,
-	pagination: false
+	pagination: false,
+	drag      : false
 } );
 splide.mount();
 
 $(".start-button").on("tap click", function () {
-	console.log("start-button click");
 	$("#enter-card").css("display", "none");
 	$(".splide").css("display", "block");
-	$(".nav-prev-next").css("display", "flex");
 });
 
 $(".prev").on("tap click", function() {

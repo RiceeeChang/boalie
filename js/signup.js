@@ -74,4 +74,5 @@ $(".ok-button").on("tap click", function () {
 
 $(".join-button").on("tap click", function () {
 	liff.closeWindow();
+	window.close();
 })

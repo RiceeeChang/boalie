@@ -28,22 +28,17 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
 
-    background-color: #D9CABB;
+    background-color: #B69A80;
 
     box-sizing: border-box;
     padding: 0 20px;
     width: 100vw;
     height: 120px;
-}
-.header::after {
-    z-index: 1;
-    position: absolute;
-    content: '';
-    width: 100vw;
-    height: 60px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0px 4px rgb(0 0 0 / 25%);
 }
 .header .logo {
     z-index: 2;
@@ -53,12 +48,17 @@ a {
     width: 115px;
 }
 .header .title {
-    writing-mode: vertical-lr;
-    color: white;
-    font-size: 48px;
-    line-height: 48px;
-    font-weight: bold;
+    /*writing-mode: vertical-lr;*/
+    color: #1B344B;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 600;
     margin-bottom: 5px;
+}
+
+
+.fix {
+    background-color: #1B344B;
 }
 .fix .content {
     display: flex;
@@ -66,7 +66,7 @@ a {
     align-items: flex-start;
     width: 100vw;
     height: 100vw;
-    padding-top: 6px;
+    padding-top: 40px;
 }
 
 .fix .fix-item-list {
@@ -75,17 +75,10 @@ a {
     width: fit-content;
 }
 .fix .fix-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    color: #fff;
-    font-size: 24px;
+    color: #B69A80;
+    font-size: 16px;
     text-align: center;
     
-    width: 140px;
-    height: 140px;
     margin: 6px;
 
     border-radius: 15px;
@@ -94,6 +87,20 @@ a {
 .fix .fix-item-logo {
     width: 108px;
     height: 90px;
+}
+.fix .fix-item .item-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 130px;
+    height: 130px;
+    margin: 3px;
+
+    border: 2px solid #B69A80;
+    border-radius: 15px;
+
 }
 
 .billboard {
